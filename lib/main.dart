@@ -51,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //create a function to validate the input values
   bool _validateInputs() {
+    // ignore: unnecessary_null_comparison
     if (_length == null || _diameter == null) {
       return false;
     } else {
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //create a function to display the input values
   String _displayInputs() {
-    return 'Length: ${_length.toStringAsFixed(2)}' +
+    return 'Length: ${_length.toStringAsFixed(2)}'
         '\nDiameter: ${_diameter.toStringAsFixed(2)}';
   }
 
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Container(
+                  SizedBox(
                     width: 100.0,
                     child: TextField(
                       keyboardType: TextInputType.number,
@@ -111,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 100.0,
                     child: TextField(
                       keyboardType: TextInputType.number,
@@ -135,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   ElevatedButton(
-                    child: Text('Calculate Volume'),
+                    child: const Text('Calculate Volume'),
                     onPressed: () {
                       if (_validateInputs()) {
                         _calculateVolume();
@@ -143,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Clear Values'),
+                    child: const Text('Clear Values'),
                     onPressed: () {
                       _clearValues();
                     },
