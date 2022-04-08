@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 //create flutter app to calculate volume of tube with two inputs
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,13 +14,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 //create class to hold the state of the app
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -69,26 +73,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tube Volume Calculator'),
+        title: const Text('Tube Volume Calculator'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Enter the length and diameter of the tube:',
+            const Text(
+              "Enter the length and diameter of the tube:",
               style: TextStyle(fontSize: 20.0),
             ),
             Text(
               _displayInputs(),
-              style: TextStyle(fontSize: 20.0),
+              style: const TextStyle(fontSize: 20.0),
             ),
             Text(
               _displayVolume(),
-              style: TextStyle(fontSize: 20.0),
+              style: const TextStyle(fontSize: 20.0),
             ),
             Container(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -96,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 100.0,
                     child: TextField(
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Length',
                         hintText: 'Enter the length of the tube',
                       ),
@@ -111,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 100.0,
                     child: TextField(
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Diameter',
                         hintText: 'Enter the diameter of the tube',
                       ),
@@ -126,11 +130,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('Calculate Volume'),
                     onPressed: () {
                       if (_validateInputs()) {
@@ -138,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       }
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('Clear Values'),
                     onPressed: () {
                       _clearValues();
